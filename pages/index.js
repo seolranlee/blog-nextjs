@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -9,6 +10,17 @@ export default function Home() {
       </Head>
 
       <main>
+        {/* Link컴포넌트의 이점 1 */}
+        {/* client side navigate */}
+        {/* 브라우저에서 url을 직접 쳐서 이동하는 것가 달리 js상에서 page컴포넌트를 교체하는 것 */}
+        <h1 className="title">
+          Read this Post <Link href="/posts/first-post">첫번째 글</Link>
+        </h1>
+
+        <h1 className="title">
+          Read this Post <a href="/posts/first-post">첫번째 글(a tag)</a>
+        </h1>
+
         <h1 className="title">
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
@@ -47,6 +59,10 @@ export default function Home() {
           </a>
         </div>
       </main>
+      {/* Link컴포넌트의 이점 2 */}
+      {/* Prefetching: yarn build, yarn start를 통해 알 수 있음 */}
+      {/* <Link> 컴포넌트를 이용하면, Viewport에 Link 컴포넌트가 노출되었을 때 href로 연결된 페이지의 chunk를 로드한다. */}
+      <Link href="/posts/second-post">두번째 글</Link>
 
       <footer>
         <a
@@ -54,8 +70,7 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel" className="logo" />
+          Powered by <img src="/vercel.svg" alt="Vercel" className="logo" />
         </a>
       </footer>
 
