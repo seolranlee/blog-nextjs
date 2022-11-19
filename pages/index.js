@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react'
 import Layout, { siteTitle } from '../components/layout'
 // import { getSortedPostsData } from '../lib/posts'
 import utilStyles from '../styles/utils.module.css'
+import Link from 'next/link'
+import Date from '../components/Date'
 
 // SSG
 // export async function getStaticProps() {
@@ -14,7 +16,8 @@ import utilStyles from '../styles/utils.module.css'
 //   }
 // }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
+  // localhost:3000=>getStaticProps에서 동작 안됨. 빌드타임에서 localhost:3000이 떠 있어야 하는데 그렇지 않으니까.
   const response = await fetch('http://localhost:3000/api/posts')
   const json = await response.json()
   return {
@@ -49,11 +52,11 @@ export default function Home({ allPostsData }) {
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>
-              {title}
+              <Link href={`/posts/${id}`}>{title}</Link>
               <br />
-              {id}
-              <br />
-              {date}
+              <small className={utilStyles.lightText}>
+                <Date dateString={date} />
+              </small>
             </li>
           ))}
         </ul>
