@@ -20,7 +20,7 @@ export async function getStaticPaths() {
     fallback: true,
     // false: 빌드타임에 없으면 별도 처리하지 않겠다. 404 보여주겠다.
     // true: 지금은(build time에는) 데이터가 없을 수 있지만 fallback을 그려놓고 기다렸다가 데이터가 오면(런타임에) 다시 그릴게!
-    // blocking: 지금은(build time에는) 데이터가 없을 수 있지만 fallback을 그려놓지 않고 기다렸다가 데이터가 오면(런타임에) 그때 generate 할게!
+    // blocking: 지금은(build time에는) 데이터가 없을 수 있지만 fallback을 그려놓지 않고 기다렸다가 데이터가 오면(런타임에) 그때 그릴게!
   }
 }
 

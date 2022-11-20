@@ -1,31 +1,36 @@
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
-import Layout, { siteTitle } from '../components/layout'
-// import { getSortedPostsData } from '../lib/posts'
+import Layout, { siteTitle } from '../components/Layout'
+import { getSortedPostsData } from '../lib/posts'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 import Date from '../components/Date'
 
 // SSG
-// export async function getStaticProps() {
-//   const allPostsData = getSortedPostsData()
-//   return {
-//     props: {
-//       allPostsData,
-//     },
-//   }
-// }
-
-export async function getServerSideProps() {
-  // localhost:3000=>getStaticProps에서 동작 안됨. 빌드타임에서 localhost:3000이 떠 있어야 하는데 그렇지 않으니까.
-  const response = await fetch('http://localhost:3000/api/posts')
-  const json = await response.json()
+// getStaticProps, getStaticPaths등은 client-side 코드에 포함되지 않는다.
+// 그렇기에 서버 사이드에서는 DB에 직접 접근하고 시크릿 키를 쓰는 등 훨씬 자유도 높은 작업을 할 수 있다.
+export async function getStaticProps() {
+  const allPostsData = getSortedPostsData()
   return {
     props: {
-      allPostsData: json.allPostsData,
+      allPostsData,
     },
   }
 }
+
+// server-side에서는 API Routes를 사용하지 말아야 한다.
+// export async function getServerSideProps() {
+//   // localhost:3000=>getStaticProps에서 동작 안됨. 빌드타임에서 localhost:3000이 떠 있어야 하는데 그렇지 않으니까.
+//   // 예시로 보여주기 위한 코드. 실제로는 이렇게 쓰면 안된다.
+//   // api routes는 clinet side에서 server side로 요청하기 위함이지, server to server의 요청을 위한 것은 아니기 때문.
+//   const response = await fetch('http://localhost:3000/api/posts')
+//   const json = await response.json()
+//   return {
+//     props: {
+//       allPostsData: json.allPostsData,
+//     },
+//   }
+// }
 
 export default function Home({ allPostsData }) {
   // CSR
