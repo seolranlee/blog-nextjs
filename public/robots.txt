@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://blog-nextjs-weld-ten.vercel.app
+
+# Sitemaps
+Sitemap: https://blog-nextjs-weld-ten.vercel.app/sitemap.xml

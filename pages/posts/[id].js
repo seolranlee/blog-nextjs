@@ -4,18 +4,18 @@ import { useRouter } from 'next/router'
 import Date from '../../components/Date'
 import Layout from '../../components/Layout'
 import CodeBlock from '../../components/CodeBlock'
-import { getPostData } from '../../lib/posts'
+import { getAllPostIds, getPostData } from '../../lib/posts'
 import utilStyles from '../../styles/utils.module.css'
 
 export async function getStaticPaths() {
-  // const paths = getAllPostIds()
-  const paths = [
-    {
-      params: {
-        id: 'ssg-ssr',
-      },
-    },
-  ]
+  const paths = getAllPostIds()
+  // const paths = [
+  //   {
+  //     params: {
+  //       id: 'ssg-ssr',
+  //     },
+  //   },
+  // ]
   return {
     paths,
     // fallback 옵션: 빌드시 생성되지 않은 page에 대한 처리에 관련된 옵션

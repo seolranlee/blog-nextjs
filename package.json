@@ -3,6 +3,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "next-sitemap",
     "start": "next start"
   },
   "dependencies": {
@@ -18,6 +19,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
+    "next-sitemap": "^3.1.52",
     "postcss": "^8.4.21",
     "prettier": "^2.7.1",
     "tailwindcss": "^3.2.7"
