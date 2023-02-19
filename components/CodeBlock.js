@@ -1,4 +1,5 @@
 import SyntaxHighlighter from 'react-syntax-highlighter'
+import { vs2015 } from 'react-syntax-highlighter/dist/cjs/styles/hljs'
 
 const CopyButton = ({ target }) => {
   const handleCopy = async () => {
@@ -26,7 +27,9 @@ export default function CodeBlock({ children }) {
   return (
     <div className="relative">
       <CopyButton target={children} />
-      <SyntaxHighlighter showLineNumbers>{children}</SyntaxHighlighter>
+      <SyntaxHighlighter showLineNumbers style={vs2015}>
+        {children}
+      </SyntaxHighlighter>
     </div>
   )
 }
