@@ -18,9 +18,11 @@
     "remark-html": "^15.0.1"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "^13.1.6",
     "autoprefixer": "^10.4.13",
     "eslint": "^8.34.0",
     "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-tailwindcss": "^3.8.3",
     "next-sitemap": "^3.1.52",
     "postcss": "^8.4.21",
     "prettier": "^2.7.1",
