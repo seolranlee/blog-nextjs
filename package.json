@@ -19,6 +19,8 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
+    "eslint": "^8.34.0",
+    "eslint-plugin-react": "^7.32.2",
     "next-sitemap": "^3.1.52",
     "postcss": "^8.4.21",
     "prettier": "^2.7.1",
