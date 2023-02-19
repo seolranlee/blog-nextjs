@@ -50,7 +50,7 @@ export default function Home({ allPostsData }) {
           생활의 전문가와 소비자를 연결하는 O2O 플랫폼 <strong>숨고</strong>를
           운영하는 <strong>브레이브 모바일</strong>의 프론트엔드 엔지니어로
           재직중입니다. 사용자가 원하는 지점에 도달하기까지의 프로세스 전반을
-          개선하는 일에 관심이 많습니다.
+          고민하고 개선하는 일에 관심이 많습니다.
         </p>
         <h2 className={utilStyles.headingLg}>Posts</h2>
         <ul className={utilStyles.list}>
